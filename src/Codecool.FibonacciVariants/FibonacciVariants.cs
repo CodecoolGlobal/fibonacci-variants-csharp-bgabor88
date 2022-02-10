@@ -49,7 +49,9 @@ namespace Codecool.FibonacciVariants
         /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int NaiveRecursive(int n)
         {
-            return 0;
+            if (n is 0 or 1) return n;
+            AdditionsCounter++;
+            return NaiveRecursive(n - 1) + NaiveRecursive(n - 2);
         }
 
         public static int RecursiveWithMemoization(int n)

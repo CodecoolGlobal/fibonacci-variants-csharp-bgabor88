@@ -9,15 +9,13 @@ namespace Codecool.FibonacciVariants
         public static void Main(string[] args)
         {
             const int k = 40;
-            int result;
             var sw = new Stopwatch();
-            TimeSpan ts;
 
             ResetCounter();
             sw.Start();
-            result = Iterative(k);
+            var result = Iterative(k);
             sw.Stop();
-            ts = sw.Elapsed;
+            var ts = sw.Elapsed;
             PrintFibonacci("iteration", k, result, AdditionsCounter, ts);
             sw.Reset();
             

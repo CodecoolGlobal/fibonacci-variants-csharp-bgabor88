@@ -8,6 +8,11 @@ namespace Codecool.FibonacciVariants
 
         public static int AdditionsCounter { get; private set; }
 
+        private static readonly Dictionary<int, int> Memory = new()
+        {
+            { 0, 0 }, { 1, 1 }
+        };
+
         public static void ResetCounter()
         {
             AdditionsCounter = 0;
@@ -54,9 +59,19 @@ namespace Codecool.FibonacciVariants
             return NaiveRecursive(n - 1) + NaiveRecursive(n - 2);
         }
 
+        /// <summary>
+        ///     Fibonacci sequence (recursive with memoization) implementation.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int RecursiveWithMemoization(int n)
         {
-            return 0;
+            if (Memory.ContainsKey(n)) return Memory[n];
+
+            Memory[n] = RecursiveWithMemoization(n - 1) + RecursiveWithMemoization(n - 2);
+            AdditionsCounter++;
+
+            return Memory[n];
         }
 
         public static int TailRecursive(int n)

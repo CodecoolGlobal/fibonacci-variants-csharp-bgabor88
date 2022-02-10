@@ -18,5 +18,12 @@
             <param name="n">N.-th Fibonacci number.</param>
             <returns>Return the N.-th Fibonacci number.</returns>
         </member>
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.RecursiveWithMemoization(System.Int32)">
+            <summary>
+                Fibonacci sequence (recursive with memoization) implementation.
+            </summary>
+            <param name="n">N.-th Fibonacci number.</param>
+            <returns>Return the N.-th Fibonacci number.</returns>
+        </member>
     </members>
 </doc>

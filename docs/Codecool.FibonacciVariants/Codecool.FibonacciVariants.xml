@@ -4,5 +4,19 @@
         <name>Codecool.FibonacciVariants</name>
     </assembly>
     <members>
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.Iterative(System.Int32)">
+            <summary>
+                Fibonacci sequence (iterative) implementation without recursive.
+            </summary>
+            <param name="n">N.-th Fibonacci number.</param>
+            <returns>Return the N.-th Fibonacci number.</returns>
+        </member>
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.NaiveRecursive(System.Int32)">
+            <summary>
+                Fibonacci sequence (naive recursive) implementation.
+            </summary>
+            <param name="n">N.-th Fibonacci number.</param>
+            <returns>Return the N.-th Fibonacci number.</returns>
+        </member>
     </members>
 </doc>

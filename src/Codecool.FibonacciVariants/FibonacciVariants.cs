@@ -17,7 +17,7 @@ namespace Codecool.FibonacciVariants
         ///     Fibonacci sequence (iterative) implementation without recursive.
         /// </summary>
         /// <param name="n">N.-th Fibonacci number.</param>
-        /// <returns></returns>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int Iterative(int n)
         {
             var firstFib = 0;
@@ -42,9 +42,16 @@ namespace Codecool.FibonacciVariants
             return lastFib;
         }
 
+        /// <summary>
+        ///     Fibonacci sequence (naive recursive) implementation.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int NaiveRecursive(int n)
         {
-            return 0;
+            if (n is 0 or 1) return n;
+            AdditionsCounter++;
+            return NaiveRecursive(n - 1) + NaiveRecursive(n - 2);
         }
 
         public static int RecursiveWithMemoization(int n)

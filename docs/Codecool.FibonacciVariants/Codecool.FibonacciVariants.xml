@@ -11,14 +11,14 @@
             <param name="n">N.-th Fibonacci number.</param>
             <returns>Return the N.-th Fibonacci number.</returns>
         </member>
-        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.IterativeWithMemory(System.Int32)">
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.IterativeWithDictMemory(System.Int32)">
             <summary>
                 Fibonacci sequence (iterative with memory) implementation without recursive.
             </summary>
             <param name="n">N.-th Fibonacci number.</param>
             <returns>Return the N.-th Fibonacci number.</returns>
         </member>
-        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.IterativeWithMemoryArray(System.Int32)">
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.IterativeWithArrayMemory(System.Int32)">
             <summary>
                 Fibonacci sequence (iterative with memory) implementation without recursive ARRAY.
             </summary>
@@ -34,7 +34,7 @@
         </member>
         <member name="M:Codecool.FibonacciVariants.FibonacciVariants.RecursiveWithMemoization(System.Int32)">
             <summary>
-                Fibonacci sequence (recursive with memoization) implementation.
+                Fibonacci sequence (recursive with memoization) implementation DICT.
             </summary>
             <param name="n">N.-th Fibonacci number.</param>
             <returns>Return the N.-th Fibonacci number.</returns>
@@ -55,7 +55,7 @@
         </member>
         <member name="T:Codecool.FibonacciVariants.Result">
             <summary>
-            Store results as objects.
+            Store parameters as objects.
             </summary>
         </member>
     </members>

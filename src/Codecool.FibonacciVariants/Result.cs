@@ -1,7 +1,7 @@
 ﻿namespace Codecool.FibonacciVariants;
 
 /// <summary>
-/// Store results as objects.
+/// Store parameters as objects.
 /// </summary>
 public class Result
 {

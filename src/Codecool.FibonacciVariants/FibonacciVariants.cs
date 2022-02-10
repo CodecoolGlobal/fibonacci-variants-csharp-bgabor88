@@ -8,23 +8,20 @@ namespace Codecool.FibonacciVariants
 
         public static int AdditionsCounter { get; private set; }
 
-        private static readonly Dictionary<int, int> Memory = new()
-        {
-            { 0, 0 }, { 1, 1 }
-        };
-
-        private static readonly Dictionary<int, int> IterativeMemory = new()
-        {
-            { 0, 0 }, { 1, 1 }
-        };
-
-        private static readonly int[] IterativeArrayMemory = new int[60];
-
-        private static readonly int[] RecursionArrayMemory = new int[60];
+        private static Dictionary<int, int> _dictMemory = new Dictionary<int, int>();
+        
+        private static int[] _arrayMemory = new int[100];
+        
 
         public static void ResetCounter()
         {
             AdditionsCounter = 0;
+        }
+
+        public static void ResetMemory()
+        {
+            _dictMemory = new Dictionary<int, int>();
+            _arrayMemory = new int[100];
         }
 
         /// <summary>
@@ -36,7 +33,7 @@ namespace Codecool.FibonacciVariants
         {
             var firstFib = 0;
             var lastFib = 1;
-
+            AdditionsCounter++;
             switch (n)
             {
                 case 0:
@@ -61,31 +58,34 @@ namespace Codecool.FibonacciVariants
         /// </summary>
         /// <param name="n">N.-th Fibonacci number.</param>
         /// <returns>Return the N.-th Fibonacci number.</returns>
-        public static int IterativeWithMemory(int n)
+        public static int IterativeWithDictMemory(int n)
         {
+            _dictMemory[0] = 0;
+            _dictMemory[1] = 1;
+            AdditionsCounter++;
             for (var i = 2; i <= n; i++)
             {
-                IterativeMemory[i] = IterativeMemory[i - 2] + IterativeMemory[i - 1];
+                _dictMemory[i] = _dictMemory[i - 2] + _dictMemory[i - 1];
                 AdditionsCounter++;
             }
-            return IterativeMemory[n];
+            return _dictMemory[n];
         }
         /// <summary>
         ///     Fibonacci sequence (iterative with memory) implementation without recursive ARRAY.
         /// </summary>
         /// <param name="n">N.-th Fibonacci number.</param>
         /// <returns>Return the N.-th Fibonacci number.</returns>
-        public static int IterativeWithMemoryArray(int n)
+        public static int IterativeWithArrayMemory(int n)
         {
-            IterativeArrayMemory[0] = 0;
-            IterativeArrayMemory[1] = 1;
-
+            _arrayMemory[0] = 0;
+            _arrayMemory[1] = 1;
+            AdditionsCounter++;
             for (var i = 2; i <= n; i++)
             {
-                IterativeArrayMemory[i] = IterativeArrayMemory[i - 2] + IterativeArrayMemory[i - 1];
+                _arrayMemory[i] = _arrayMemory[i - 2] + _arrayMemory[i - 1];
                 AdditionsCounter++;
             }
-            return IterativeArrayMemory[n];
+            return _arrayMemory[n];
         }
 
         /// <summary>
@@ -95,24 +95,35 @@ namespace Codecool.FibonacciVariants
         /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int NaiveRecursive(int n)
         {
-            if (n is 0 or 1) return n;
+            if (n is 0 or 1)
+            {
+                AdditionsCounter++;
+                return n;
+            }
             AdditionsCounter++;
             return NaiveRecursive(n - 1) + NaiveRecursive(n - 2);
         }
 
         /// <summary>
-        ///     Fibonacci sequence (recursive with memoization) implementation.
+        ///     Fibonacci sequence (recursive with memoization) implementation DICT.
         /// </summary>
         /// <param name="n">N.-th Fibonacci number.</param>
         /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int RecursiveWithMemoization(int n)
         {
-            if (Memory.ContainsKey(n)) return Memory[n];
+            if (_dictMemory.Count == 0)
+            {
+                _dictMemory[0] = 0;
+                _dictMemory[1] = 1;
+                AdditionsCounter++;
+            }
 
-            Memory[n] = RecursiveWithMemoization(n - 1) + RecursiveWithMemoization(n - 2);
+            if (_dictMemory.ContainsKey(n)) return _dictMemory[n];
+
+            _dictMemory[n] = RecursiveWithMemoization(n - 1) + RecursiveWithMemoization(n - 2);
             AdditionsCounter++;
 
-            return Memory[n];
+            return _dictMemory[n];
         }
 
         /// <summary>
@@ -125,17 +136,18 @@ namespace Codecool.FibonacciVariants
             switch (n)
             {
                 case 0:
+                    AdditionsCounter++;
                     return n;
-                case 1 or 2:
+                case 1:
                     return 1;
             }
 
-            if (RecursionArrayMemory[n] != 0) return RecursionArrayMemory[n];
+            if (_arrayMemory[n] != 0) return _arrayMemory[n];
 
-            RecursionArrayMemory[n] = RecursiveWithMemoization(n - 1) + RecursiveWithMemoization(n - 2);
+            _arrayMemory[n] = RecursiveWithMemoizationArray(n - 1) + RecursiveWithMemoizationArray(n - 2);
             AdditionsCounter++;
 
-            return RecursionArrayMemory[n];
+            return _arrayMemory[n];
         }
 
         /// <summary>

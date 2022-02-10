@@ -15,6 +15,7 @@ namespace Codecool.FibonacciVariants
             const int k = 40;
             var sw = new Stopwatch();
 
+            ResetMemory();
             ResetCounter();
             sw.Start();
             var result = Iterative(k);
@@ -22,20 +23,23 @@ namespace Codecool.FibonacciVariants
             results.Add(new Result("Iteration without memory", k, result, AdditionsCounter, sw.Elapsed.TotalMilliseconds));
             sw.Reset();
 
+            ResetMemory();
             ResetCounter();
             sw.Start();
-            result = IterativeWithMemory(k);
+            result = IterativeWithDictMemory(k);
             sw.Stop();
             results.Add(new Result("Iteration with memory (Dict)", k, result, AdditionsCounter, sw.Elapsed.TotalMilliseconds));
             sw.Reset();
 
+            ResetMemory();
             ResetCounter();
             sw.Start();
-            result = IterativeWithMemoryArray(k);
+            result = IterativeWithArrayMemory(k);
             sw.Stop();
             results.Add(new Result("Iteration with memory (Array)", k, result, AdditionsCounter, sw.Elapsed.TotalMilliseconds));
             sw.Reset();
 
+            ResetMemory();
             ResetCounter();
             sw.Start();
             result = NaiveRecursive(k);
@@ -43,6 +47,7 @@ namespace Codecool.FibonacciVariants
             results.Add(new Result("Naive recursion", k, result, AdditionsCounter, sw.Elapsed.TotalMilliseconds));
             sw.Reset();
 
+            ResetMemory();
             ResetCounter();
             sw.Start();
             result = RecursiveWithMemoization(k);
@@ -50,6 +55,7 @@ namespace Codecool.FibonacciVariants
             results.Add(new Result("Recursion with memory (Dict)", k, result, AdditionsCounter, sw.Elapsed.TotalMilliseconds));
             sw.Reset();
 
+            ResetMemory();
             ResetCounter();
             sw.Start();
             result = RecursiveWithMemoizationArray(k);
@@ -57,6 +63,7 @@ namespace Codecool.FibonacciVariants
             results.Add(new Result("Recursion with memory (Array)", k, result, AdditionsCounter, sw.Elapsed.TotalMilliseconds));
             sw.Reset();
 
+            ResetMemory();
             ResetCounter();
             sw.Start();
             result = TailRecursive(k);

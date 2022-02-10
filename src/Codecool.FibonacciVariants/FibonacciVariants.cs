@@ -13,6 +13,15 @@ namespace Codecool.FibonacciVariants
             { 0, 0 }, { 1, 1 }
         };
 
+        private static readonly Dictionary<int, int> IterativeMemory = new()
+        {
+            { 0, 0 }, { 1, 1 }
+        };
+
+        private static readonly int[] IterativeArrayMemory = new int[60];
+
+        private static readonly int[] RecursionArrayMemory = new int[60];
+
         public static void ResetCounter()
         {
             AdditionsCounter = 0;
@@ -48,6 +57,38 @@ namespace Codecool.FibonacciVariants
         }
 
         /// <summary>
+        ///     Fibonacci sequence (iterative with memory) implementation without recursive.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
+        public static int IterativeWithMemory(int n)
+        {
+            for (var i = 2; i <= n; i++)
+            {
+                IterativeMemory[i] = IterativeMemory[i - 2] + IterativeMemory[i - 1];
+                AdditionsCounter++;
+            }
+            return IterativeMemory[n];
+        }
+        /// <summary>
+        ///     Fibonacci sequence (iterative with memory) implementation without recursive ARRAY.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
+        public static int IterativeWithMemoryArray(int n)
+        {
+            IterativeArrayMemory[0] = 0;
+            IterativeArrayMemory[1] = 1;
+
+            for (var i = 2; i <= n; i++)
+            {
+                IterativeArrayMemory[i] = IterativeArrayMemory[i - 2] + IterativeArrayMemory[i - 1];
+                AdditionsCounter++;
+            }
+            return IterativeArrayMemory[n];
+        }
+
+        /// <summary>
         ///     Fibonacci sequence (naive recursive) implementation.
         /// </summary>
         /// <param name="n">N.-th Fibonacci number.</param>
@@ -72,6 +113,29 @@ namespace Codecool.FibonacciVariants
             AdditionsCounter++;
 
             return Memory[n];
+        }
+
+        /// <summary>
+        ///     Fibonacci sequence (recursive with memoization) implementation with array as dict.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
+        public static int RecursiveWithMemoizationArray(int n)
+        {
+            switch (n)
+            {
+                case 0:
+                    return n;
+                case 1 or 2:
+                    return 1;
+            }
+
+            if (RecursionArrayMemory[n] != 0) return RecursionArrayMemory[n];
+
+            RecursionArrayMemory[n] = RecursiveWithMemoization(n - 1) + RecursiveWithMemoization(n - 2);
+            AdditionsCounter++;
+
+            return RecursionArrayMemory[n];
         }
 
         /// <summary>

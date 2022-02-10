@@ -11,6 +11,20 @@
             <param name="n">N.-th Fibonacci number.</param>
             <returns>Return the N.-th Fibonacci number.</returns>
         </member>
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.IterativeWithMemory(System.Int32)">
+            <summary>
+                Fibonacci sequence (iterative with memory) implementation without recursive.
+            </summary>
+            <param name="n">N.-th Fibonacci number.</param>
+            <returns>Return the N.-th Fibonacci number.</returns>
+        </member>
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.IterativeWithMemoryArray(System.Int32)">
+            <summary>
+                Fibonacci sequence (iterative with memory) implementation without recursive ARRAY.
+            </summary>
+            <param name="n">N.-th Fibonacci number.</param>
+            <returns>Return the N.-th Fibonacci number.</returns>
+        </member>
         <member name="M:Codecool.FibonacciVariants.FibonacciVariants.NaiveRecursive(System.Int32)">
             <summary>
                 Fibonacci sequence (naive recursive) implementation.
@@ -25,12 +39,24 @@
             <param name="n">N.-th Fibonacci number.</param>
             <returns>Return the N.-th Fibonacci number.</returns>
         </member>
+        <member name="M:Codecool.FibonacciVariants.FibonacciVariants.RecursiveWithMemoizationArray(System.Int32)">
+            <summary>
+                Fibonacci sequence (recursive with memoization) implementation with array as dict.
+            </summary>
+            <param name="n">N.-th Fibonacci number.</param>
+            <returns>Return the N.-th Fibonacci number.</returns>
+        </member>
         <member name="M:Codecool.FibonacciVariants.FibonacciVariants.TailRecursive(System.Int32)">
             <summary>
             Fibonacci sequence (tail recursive) implementation.
             </summary>
             <param name="n">N.-th Fibonacci number.</param>
             <returns>Return the N.-th Fibonacci number.</returns>
+        </member>
+        <member name="T:Codecool.FibonacciVariants.Result">
+            <summary>
+            Store results as objects.
+            </summary>
         </member>
     </members>
 </doc>

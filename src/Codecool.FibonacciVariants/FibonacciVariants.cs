@@ -74,14 +74,20 @@ namespace Codecool.FibonacciVariants
             return Memory[n];
         }
 
+        /// <summary>
+        /// Fibonacci sequence (tail recursive) implementation.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int TailRecursive(int n)
         {
-            return 0;
+            return TailRecursiveHelper(n - 1, 0, 1);
         }
 
         private static int TailRecursiveHelper(int n, int a, int b)
         {
-            return 0;
+            AdditionsCounter++;
+            return n < 1 ? b : TailRecursiveHelper(n - 1, b, a + b);
         }
     }
 }

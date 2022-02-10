@@ -54,6 +54,11 @@ namespace Codecool.FibonacciVariants
             return NaiveRecursive(n - 1) + NaiveRecursive(n - 2);
         }
 
+        /// <summary>
+        ///     Fibonacci sequence (recursive with memoization) implementation.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns>Return the N.-th Fibonacci number.</returns>
         public static int RecursiveWithMemoization(int n)
         {
             return 0;

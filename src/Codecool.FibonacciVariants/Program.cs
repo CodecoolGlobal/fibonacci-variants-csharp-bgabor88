@@ -12,7 +12,7 @@ namespace Codecool.FibonacciVariants
         public static void Main(string[] args)
         {
             var results = new List<Result>();
-            const int k = 40;
+            const int k = 15;
             var sw = new Stopwatch();
 
             ResetMemory();

@@ -12,7 +12,7 @@ namespace Codecool.FibonacciVariants
         public static void Main(string[] args)
         {
             var results = new List<Result>();
-            const int k = 20;
+            const int k = 40;
             var sw = new Stopwatch();
 
             ResetCounter();
@@ -69,7 +69,7 @@ namespace Codecool.FibonacciVariants
 
         private static void PrintFibonacci(string methodName, int k, int fib, int additions, double time)
         {
-            Console.WriteLine($"Using {methodName}:\n   Fib({k}):  {fib}\n   Additions: {additions}\n   Time: {time}ms");
+            Console.WriteLine($" {time}ms\n     Using {methodName}:\n     Fib({k}): {fib}\n     Additions: {additions}");
             Console.WriteLine();
         }
 

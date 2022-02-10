@@ -13,6 +13,11 @@ namespace Codecool.FibonacciVariants
             AdditionsCounter = 0;
         }
 
+        /// <summary>
+        ///     Fibonacci sequence (iterative) implementation without recursive.
+        /// </summary>
+        /// <param name="n">N.-th Fibonacci number.</param>
+        /// <returns></returns>
         public static int Iterative(int n)
         {
             var firstFib = 0;

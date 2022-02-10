@@ -8,6 +8,8 @@ namespace Codecool.FibonacciVariants
 
         public static int AdditionsCounter { get; private set; }
 
+        private static IEnumerable<int> _memory = new List<int>();
+
         public static void ResetCounter()
         {
             AdditionsCounter = 0;

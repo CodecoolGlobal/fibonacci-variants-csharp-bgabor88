@@ -12,7 +12,13 @@ namespace Codecool.FibonacciVariants
         public static void Main(string[] args)
         {
             var results = new List<Result>();
-            const int k = 15;
+            
+            Console.WriteLine("Please enter a number between 0-40:");
+            int k = Convert.ToInt32(Console.ReadLine());
+            if (k > 40) {
+                k = 40;
+            }
+
             var sw = new Stopwatch();
 
             ResetMemory();

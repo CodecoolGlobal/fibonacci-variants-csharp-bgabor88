@@ -1,4 +1,4 @@
-# Hogwarts Potion
+# Fibonacci Variants
 
 ## Description
 
